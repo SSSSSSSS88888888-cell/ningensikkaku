@@ -25,12 +25,13 @@ export function Title({ onStart }: TitleProps) {
           <p className="title-label">選択型文學遊戯</p>
 
           <h1 className="title-main">
-            <span className="title-char">道</span>
-            <span className="title-char">化</span>
-            <span className="title-char">師</span>
+            <span className="title-char">人</span>
+            <span className="title-char">間</span>
+            <span className="title-char">失</span>
+            <span className="title-char">格</span>
           </h1>
 
-          <p className="title-sub">DOUKE SIMULATOR</p>
+          <p className="title-sub">NINGEN SHIKKAKU SIMULATOR</p>
 
           {/* 中央装飾 */}
           <div className="title-divider">
