@@ -27,19 +27,19 @@ export function Ending({ stats, onRestart }: EndingProps) {
         <div className="ending-stats">
           <div className="stat-item">
             <span className="stat-label">恥</span>
-            <span className="stat-value" style={{ color: '#DC2626' }}>{stats.shame}</span>
+            <span className="stat-value" style={{ color: '#8b2942' }}>{stats.shame}</span>
           </div>
           <div className="stat-item">
             <span className="stat-label">孤独</span>
-            <span className="stat-value" style={{ color: '#2563EB' }}>{stats.loneliness}</span>
+            <span className="stat-value" style={{ color: '#2d4a6b' }}>{stats.loneliness}</span>
           </div>
           <div className="stat-item">
             <span className="stat-label">信頼</span>
-            <span className="stat-value" style={{ color: '#16A34A' }}>{stats.trust}</span>
+            <span className="stat-value" style={{ color: '#3d6b4a' }}>{stats.trust}</span>
           </div>
           <div className="stat-item">
             <span className="stat-label">道化</span>
-            <span className="stat-value" style={{ color: '#CA8A04' }}>{stats.clown}</span>
+            <span className="stat-value" style={{ color: '#c9a227' }}>{stats.clown}</span>
           </div>
         </div>
 

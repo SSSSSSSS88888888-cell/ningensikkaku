@@ -5,116 +5,260 @@
   min-height: 0;
   flex: 1;
   overflow-y: auto;
-  animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.6s ease-out;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(201, 162, 39, 0.02) 50%,
+    transparent 100%
+  );
 }
 
+/* ヘッダー */
 .scene-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.scene-header::after {
+  content: '◆';
+  position: absolute;
+  bottom: -0.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.5rem;
+  color: var(--color-gold-dim);
+  background: var(--color-bg);
+  padding: 0 0.5rem;
 }
 
 .scene-chapter {
-  font-size: 0.875rem;
-  color: #737373;
-  letter-spacing: 0.1em;
+  font-size: 0.8125rem;
+  color: var(--color-gold);
+  letter-spacing: 0.15em;
+  font-weight: 500;
 }
 
 .scene-progress {
-  font-size: 0.75rem;
-  color: #525252;
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-paper);
 }
 
+/* ナレーション */
 .scene-narration {
   flex: 1;
-  margin-bottom: 2rem;
-  line-height: 2;
+  margin-bottom: 1.5rem;
+  line-height: 2.2;
+  padding: 0 0.5rem;
 }
 
 .scene-narration p {
   margin: 0;
   font-size: 1rem;
-  color: #e5e5e5;
+  color: var(--color-text);
+  text-indent: 1em;
+}
+
+.scene-narration p:first-child {
+  text-indent: 0;
 }
 
 .scene-narration p.empty-line {
-  height: 1rem;
+  height: 1.2rem;
 }
 
+/* 引用 */
 .scene-quote {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-left: 2px solid #DC2626;
-  background: rgba(220, 38, 38, 0.05);
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 41, 66, 0.08) 0%,
+    rgba(139, 41, 66, 0.04) 100%
+  );
+  border-left: 2px solid var(--color-crimson);
+  border-right: 1px solid var(--color-border);
+  position: relative;
+}
+
+.scene-quote::before {
+  content: '『';
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--color-crimson);
+  opacity: 0.3;
+  line-height: 1;
 }
 
 .scene-quote p {
   margin: 0;
   font-size: 0.875rem;
-  color: #a3a3a3;
-  font-style: italic;
+  color: var(--color-text-muted);
+  font-style: normal;
+  padding-left: 0.5rem;
 }
 
+/* 選択肢セクション */
 .scene-choices {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.625rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  position: relative;
 }
 
+.scene-choices::before {
+  content: '選択';
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.625rem;
+  color: var(--color-text-dim);
+  background: var(--color-bg);
+  padding: 0 0.75rem;
+  letter-spacing: 0.3em;
+}
+
+/* 選択肢ボタン */
 .choice-button {
-  background: transparent;
-  border: 1px solid #404040;
-  color: #e5e5e5;
-  padding: 1rem 1.5rem;
+  background: var(--color-bg-paper);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 1rem 1.25rem;
   font-size: 0.9375rem;
   font-family: inherit;
   text-align: left;
   cursor: pointer;
-  transition: all 0.2s ease;
-  line-height: 1.5;
+  transition: all 0.3s ease;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+
+.choice-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.choice-button::after {
+  content: '▸';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: var(--color-gold-dim);
 }
 
 .choice-button:hover {
-  background: #1a1a1a;
-  border-color: #525252;
+  background: var(--color-bg-accent);
+  border-color: var(--color-border-light);
+  padding-left: 1.5rem;
+}
+
+.choice-button:hover::after {
+  opacity: 1;
+  right: 0.75rem;
+}
+
+/* 本音の選択肢 */
+.choice-button.choice-honest::before {
+  background: var(--color-loneliness);
+  opacity: 0.5;
 }
 
 .choice-button.choice-honest:hover {
-  border-color: #2563EB;
-  background: rgba(37, 99, 235, 0.1);
+  border-color: var(--color-loneliness);
+  background: rgba(45, 74, 107, 0.15);
+}
+
+.choice-button.choice-honest:hover::before {
+  opacity: 1;
+}
+
+.choice-button.choice-honest:hover::after {
+  color: var(--color-loneliness);
+}
+
+/* 道化の選択肢 */
+.choice-button.choice-clown::before {
+  background: var(--color-clown);
+  opacity: 0.5;
 }
 
 .choice-button.choice-clown:hover {
-  border-color: #CA8A04;
-  background: rgba(202, 138, 4, 0.1);
+  border-color: var(--color-clown);
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.choice-button.choice-clown:hover::before {
+  opacity: 1;
+}
+
+.choice-button.choice-clown:hover::after {
+  color: var(--color-clown);
+}
+
+/* 逃避の選択肢 */
+.choice-button.choice-escape::before {
+  background: var(--color-text-dim);
+  opacity: 0.5;
 }
 
 .choice-button.choice-escape:hover {
-  border-color: #525252;
-  background: rgba(82, 82, 82, 0.2);
+  border-color: var(--color-text-dim);
+  background: rgba(122, 111, 96, 0.1);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.choice-button.choice-escape:hover::before {
+  opacity: 1;
 }
 
+.choice-button.choice-escape:hover::after {
+  color: var(--color-text-dim);
+}
+
+/* レスポンシブ */
 @media (max-width: 640px) {
   .scene {
-    padding: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .scene-narration {
+    padding: 0;
   }
 
   .scene-narration p {
     font-size: 0.9375rem;
+    line-height: 2;
   }
 
   .choice-button {
     padding: 0.875rem 1rem;
     font-size: 0.875rem;
+  }
+
+  .scene-choices::before {
+    font-size: 0.5625rem;
   }
 }

@@ -1,55 +1,124 @@
 .status-bar {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem 1.5rem;
+  gap: 0.875rem 1.5rem;
   padding: 1rem 1.5rem;
-  background: #171717;
-  border-top: 1px solid #262626;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-paper) 0%,
+    var(--color-bg) 100%
+  );
+  border-top: 1px solid var(--color-border);
+  position: relative;
+}
+
+.status-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold-dim),
+    transparent
+  );
 }
 
 .gauge {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.625rem;
 }
 
 .gauge-label {
-  font-size: 0.75rem;
-  color: #a3a3a3;
-  width: 2rem;
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  width: 2.25rem;
   flex-shrink: 0;
+  letter-spacing: 0.1em;
+  font-weight: 500;
 }
 
 .gauge-bar {
   flex: 1;
-  height: 6px;
-  background: #262626;
-  border-radius: 3px;
+  height: 8px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
   overflow: hidden;
+  position: relative;
+}
+
+.gauge-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 9.9%,
+    var(--color-border) 9.9%,
+    var(--color-border) 10%
+  );
+  opacity: 0.5;
 }
 
 .gauge-fill {
   height: 100%;
-  transition: width 0.5s ease-out;
-  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.gauge-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .gauge-value {
   font-size: 0.625rem;
-  color: #737373;
-  width: 1.5rem;
+  color: var(--color-text-dim);
+  width: 1.75rem;
   text-align: right;
   flex-shrink: 0;
+  font-weight: 500;
+  letter-spacing: 0.05em;
 }
+
+/* ゲージカラー別スタイル */
+.gauge:nth-child(1) .gauge-label { color: var(--color-shame); }
+.gauge:nth-child(2) .gauge-label { color: var(--color-loneliness); }
+.gauge:nth-child(3) .gauge-label { color: var(--color-trust); }
+.gauge:nth-child(4) .gauge-label { color: var(--color-clown); }
 
 @media (max-width: 480px) {
   .status-bar {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem 1rem;
-    padding: 0.75rem 1rem;
+    gap: 0.625rem 1rem;
+    padding: 0.875rem 1rem;
   }
 
   .gauge-label {
     font-size: 0.625rem;
+    width: 2rem;
+  }
+
+  .gauge-bar {
+    height: 6px;
+  }
+
+  .gauge-value {
+    font-size: 0.5625rem;
+    width: 1.5rem;
   }
 }
