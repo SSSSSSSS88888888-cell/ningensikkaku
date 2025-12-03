@@ -1,4 +1,4 @@
-// 道化シミュレーター 型定義
+// 人間失格シミュレーター 型定義
 
 export interface Effects {
   shame: number;      // 恥
