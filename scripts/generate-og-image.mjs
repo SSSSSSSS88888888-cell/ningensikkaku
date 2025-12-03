@@ -39,10 +39,10 @@ const svg = `
   <text x="600" y="180" fill="#8b7355" font-family="serif" font-size="28" text-anchor="middle" letter-spacing="8">選 択 型 文 學 遊 戯</text>
 
   <!-- Main title -->
-  <text x="600" y="300" fill="#d4af37" font-family="serif" font-size="120" text-anchor="middle" letter-spacing="30">道化師</text>
+  <text x="600" y="300" fill="#d4af37" font-family="serif" font-size="100" text-anchor="middle" letter-spacing="20">人間失格</text>
 
   <!-- Subtitle -->
-  <text x="600" y="360" fill="#666" font-family="sans-serif" font-size="24" text-anchor="middle" letter-spacing="4">DOUKE SIMULATOR</text>
+  <text x="600" y="360" fill="#666" font-family="sans-serif" font-size="22" text-anchor="middle" letter-spacing="4">NINGEN SHIKKAKU SIMULATOR</text>
 
   <!-- Divider -->
   <line x1="350" y1="400" x2="850" y2="400" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
