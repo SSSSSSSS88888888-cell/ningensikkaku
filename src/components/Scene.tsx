@@ -1,4 +1,6 @@
 import type { Scene as SceneType, Choice } from '../types';
+import { CharacterDisplay } from './Character';
+import { getSceneCharacters } from '../data/characters';
 import './Scene.css';
 
 interface SceneProps {
@@ -9,37 +11,45 @@ interface SceneProps {
 }
 
 export function Scene({ scene, sceneNumber, totalScenes, onChoiceSelect }: SceneProps) {
+  const characters = getSceneCharacters(scene.id);
+
   return (
     <div className="scene">
-      <div className="scene-header">
-        <span className="scene-chapter">【{scene.chapter}】</span>
-        <span className="scene-progress">{sceneNumber} / {totalScenes}</span>
-      </div>
+      {/* キャラクターレイヤー */}
+      <CharacterDisplay characters={characters} />
 
-      <div className="scene-narration">
-        {scene.narration.split('\n').map((line, index) => (
-          <p key={index} className={line.trim() === '' ? 'empty-line' : ''}>
-            {line || '\u00A0'}
-          </p>
-        ))}
-      </div>
-
-      {scene.originalQuote && (
-        <div className="scene-quote">
-          <p>「{scene.originalQuote}」</p>
+      {/* テキストコンテンツ */}
+      <div className="scene-content">
+        <div className="scene-header">
+          <span className="scene-chapter">【{scene.chapter}】</span>
+          <span className="scene-progress">{sceneNumber} / {totalScenes}</span>
         </div>
-      )}
 
-      <div className="scene-choices">
-        {scene.choices.map((choice) => (
-          <button
-            key={choice.id}
-            className={`choice-button choice-${choice.type}`}
-            onClick={() => onChoiceSelect(choice)}
-          >
-            {choice.text}
-          </button>
-        ))}
+        <div className="scene-narration">
+          {scene.narration.split('\n').map((line, index) => (
+            <p key={index} className={line.trim() === '' ? 'empty-line' : ''}>
+              {line || '\u00A0'}
+            </p>
+          ))}
+        </div>
+
+        {scene.originalQuote && (
+          <div className="scene-quote">
+            <p>「{scene.originalQuote}」</p>
+          </div>
+        )}
+
+        <div className="scene-choices">
+          {scene.choices.map((choice) => (
+            <button
+              key={choice.id}
+              className={`choice-button choice-${choice.type}`}
+              onClick={() => onChoiceSelect(choice)}
+            >
+              {choice.text}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
