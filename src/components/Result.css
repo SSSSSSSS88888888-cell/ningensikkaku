@@ -1,0 +1,92 @@
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.result-text {
+  max-width: 500px;
+  margin-bottom: 2rem;
+  line-height: 2;
+  text-align: center;
+}
+
+.result-text p {
+  margin: 0;
+  font-size: 1rem;
+  color: #e5e5e5;
+}
+
+.result-text p.empty-line {
+  height: 1rem;
+}
+
+.result-effects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.effect-badge {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  border: 1px solid;
+  border-radius: 2px;
+  color: #a3a3a3;
+}
+
+.effect-badge.positive {
+  color: #a3a3a3;
+}
+
+.effect-badge.negative {
+  color: #737373;
+}
+
+.effect-badge.neutral {
+  color: #525252;
+}
+
+.continue-button {
+  background: transparent;
+  border: 1px solid #404040;
+  color: #e5e5e5;
+  padding: 0.75rem 2rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.1em;
+}
+
+.continue-button:hover {
+  background: #1a1a1a;
+  border-color: #525252;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .result {
+    padding: 1.5rem;
+  }
+
+  .result-text p {
+    font-size: 0.9375rem;
+  }
+}

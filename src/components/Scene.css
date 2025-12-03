@@ -1,0 +1,120 @@
+.scene {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.scene-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.scene-chapter {
+  font-size: 0.875rem;
+  color: #737373;
+  letter-spacing: 0.1em;
+}
+
+.scene-progress {
+  font-size: 0.75rem;
+  color: #525252;
+}
+
+.scene-narration {
+  flex: 1;
+  margin-bottom: 2rem;
+  line-height: 2;
+}
+
+.scene-narration p {
+  margin: 0;
+  font-size: 1rem;
+  color: #e5e5e5;
+}
+
+.scene-narration p.empty-line {
+  height: 1rem;
+}
+
+.scene-quote {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-left: 2px solid #DC2626;
+  background: rgba(220, 38, 38, 0.05);
+}
+
+.scene-quote p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #a3a3a3;
+  font-style: italic;
+}
+
+.scene-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.choice-button {
+  background: transparent;
+  border: 1px solid #404040;
+  color: #e5e5e5;
+  padding: 1rem 1.5rem;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.5;
+}
+
+.choice-button:hover {
+  background: #1a1a1a;
+  border-color: #525252;
+}
+
+.choice-button.choice-honest:hover {
+  border-color: #2563EB;
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.choice-button.choice-clown:hover {
+  border-color: #CA8A04;
+  background: rgba(202, 138, 4, 0.1);
+}
+
+.choice-button.choice-escape:hover {
+  border-color: #525252;
+  background: rgba(82, 82, 82, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .scene {
+    padding: 1.5rem;
+  }
+
+  .scene-narration p {
+    font-size: 0.9375rem;
+  }
+
+  .choice-button {
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+  }
+}

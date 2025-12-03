@@ -1,0 +1,55 @@
+.status-bar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem 1.5rem;
+  padding: 1rem 1.5rem;
+  background: #171717;
+  border-top: 1px solid #262626;
+}
+
+.gauge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gauge-label {
+  font-size: 0.75rem;
+  color: #a3a3a3;
+  width: 2rem;
+  flex-shrink: 0;
+}
+
+.gauge-bar {
+  flex: 1;
+  height: 6px;
+  background: #262626;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.gauge-fill {
+  height: 100%;
+  transition: width 0.5s ease-out;
+  border-radius: 3px;
+}
+
+.gauge-value {
+  font-size: 0.625rem;
+  color: #737373;
+  width: 1.5rem;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .status-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .gauge-label {
+    font-size: 0.625rem;
+  }
+}
